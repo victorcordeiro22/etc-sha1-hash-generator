@@ -1,6 +1,7 @@
+require('dotenv').config();
 const { generateSHA1 } = require("./generate-sha1");
 
-const SECRET_TOKEN = "my-secret";
+const SECRET_TOKEN = process.env.SECRET_TOKEN;
 
 const payload = {
   a: "b",

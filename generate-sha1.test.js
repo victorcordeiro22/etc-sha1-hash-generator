@@ -1,7 +1,7 @@
 const { generateSHA1 } = require("./generate-sha1");
 const crypto = require("crypto");
 
-const SECRET_TOKEN = 'mySecretToken';
+const SECRET_TOKEN = process.env.SECRET_TOKEN || "my-secret";
 
 describe("generateSHA1", () => {
   beforeAll(() => {

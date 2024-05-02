@@ -4,14 +4,6 @@ const crypto = require("crypto");
 const SECRET_TOKEN = process.env.SECRET_TOKEN || "my-secret";
 
 describe("generateSHA1", () => {
-  beforeAll(() => {
-    jest.spyOn(console, "error").mockImplementation(() => {});
-  });
-
-  afterAll(() => {
-    console.error.mockRestore();
-  });
-
   it("should generate the correct SHA1 hash", () => {
     const payload = {
       ping: "pong",
@@ -36,6 +28,10 @@ describe("generateSHA1", () => {
   });
 
   it("should return null if error", () => {
+    jest.spyOn(console, "error").mockImplementation(() => {});
+
     expect(generateSHA1()).toBe(null);
+
+    console.error.mockRestore();
   });
 });
